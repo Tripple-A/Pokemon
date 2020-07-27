@@ -3,7 +3,7 @@ import Details from '../containers/Details';
 
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState({});
   const [loading, setLoading] = useState(false);
   const search = () => {
     setLoading(true);

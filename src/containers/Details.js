@@ -102,14 +102,14 @@ Details.propTypes = {
   pokemons: PropTypes.arrayOf(Object).isRequired,
   loading: PropTypes.bool.isRequired,
   details: PropTypes.shape({
-    forms: PropTypes.arrayOf(Object).isRequired,
-    count: PropTypes.number.isRequired,
-    weight: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
+    forms: PropTypes.arrayOf(Object),
+    count: PropTypes.number,
+    weight: PropTypes.number,
+    height: PropTypes.number,
     sprites: PropTypes.shape({
       front_default: PropTypes.string.isRequired,
     }),
-  }).isRequired,
+  }),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Details);

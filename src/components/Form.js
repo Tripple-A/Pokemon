@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 const Form = ({
   current, save, remove,
 }) => {
-  const [nickName, setNickname] = useState(current.nickName);
-  const [favColor, setFavColor] = useState(current.favColor);
-  const [captureDate, setCaptureDate] = useState(current.captureDate);
+  const [nickName, setNickname] = useState(current.nickName || '');
+  const [favColor, setFavColor] = useState(current.favColor || '');
+  const [captureDate, setCaptureDate] = useState(current.captureDate || '');
 
   const cancel = () => {
     remove(0);
@@ -21,30 +21,49 @@ const Form = ({
     cancel();
   };
 
+  const handleChange = e => {
+    switch (e.target.name) {
+      case ('nickName'):
+        setNickname(e.target.value);
+        break;
+      case ('favColor'):
+        setFavColor(e.target.value);
+        break;
+      case ('captureDate'):
+        setCaptureDate(e.target.value);
+        break;
+      default:
+        return null;
+    }
+    return null;
+  };
+
   return (
     <div>
       <div className="form-group">
         <label>Nickname: </label>
         <input
-          name="nickname"
+          name="nickName"
           className="form-control"
           type="text"
           value={nickName}
-          onChange={e => setNickname(e.target.value)}
+          onChange={e => handleChange(e)}
         />
         <label>Favorite Color: </label>
         <input
           className="form-control"
+          name="favColor"
           type="text"
           value={favColor}
-          onChange={e => setFavColor(e.target.value)}
+          onChange={handleChange}
         />
         <label>Capture Date: </label>
         <input
           className="form-control"
           type="date"
+          name="captureDate"
           value={captureDate}
-          onChange={e => setCaptureDate(e.target.value)}
+          onChange={handleChange}
         />
         <button
           className="mr-2 btn btn-primary"
@@ -69,7 +88,7 @@ Form.propTypes = {
   current: PropTypes.shape({
     nickName: PropTypes.string,
     favColor: PropTypes.string,
-    captureDate: PropTypes.instanceOf(Date),
+    captureDate: PropTypes.string,
   }).isRequired,
   save: PropTypes.func.isRequired,
   remove: PropTypes.func.isRequired,
