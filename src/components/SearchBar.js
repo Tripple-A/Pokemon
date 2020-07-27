@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Details from '../containers/Details';
 
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -27,6 +28,7 @@ const SearchBar = () => {
           </button>
         </div>
       </div>
+      <Details details={details} />
     </div>
   );
 };

@@ -15,3 +15,12 @@
     margin-right: 1rem;
     margin-left: 1rem;
 }
+
+.detailsDiv{
+    margin-top: 1rem
+}
+
+input:focus{
+    outline: none;
+    border: none;
+}
