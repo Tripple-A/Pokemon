@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { VIEW, DELETE } from '../actions';
 
@@ -22,9 +23,9 @@ const Display = ({ pokemons, view, remove }) => {
     await view(0);
     view(index + 1);
   };
-  
+
   const listItems = pokemons.map((pokemon, index) => (
-    <div key={index} className="pokeImages justify-content-center">
+    <div key={pokemon.forms[0].name} className="pokeImages justify-content-center">
       <img
         alt="pokemon pic"
         src={pokemon.sprites.front_default}
@@ -58,6 +59,12 @@ const Display = ({ pokemons, view, remove }) => {
       <h6 className="text-center">You have not chosen any pokemons</h6>
     </div>
   );
+};
+
+Display.propTypes = {
+  pokemons: PropTypes.arrayOf(Object).isRequired,
+  view: PropTypes.func.isRequired,
+  remove: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Display);
