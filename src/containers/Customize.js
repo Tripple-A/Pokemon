@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Form from '../components/Form';
 
 const mapStateToProps = state => ({
   pokemons: state.pokemons,
@@ -13,8 +14,12 @@ const Customize = ({ pokemons, index }) => {
       <div className="">
         <h6 className="text-center pokeHeading">
           Form for
-          {currentPokemon.forms[0].name}
+          <span>
+            {' '}
+            { currentPokemon.forms[0].name }
+          </span>
         </h6>
+        <Form current={currentPokemon} />
       </div>
     );
   }

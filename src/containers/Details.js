@@ -14,15 +14,22 @@ const Details = ({
   details, add, pokemons, loaded,
 }) => {
   const [error, setError] = useState('');
+  const showError = error => {
+    setError(error);
+    setTimeout(() => {
+      setError('');
+    }, 3000);
+  };
   const checkAdd = details => {
     if (pokemons.includes(details)) {
-      setError('Pokemon already exists in catalogue');
+      showError(`${details.forms[0].name} already exists in catalogue`);
       return null;
     }
     if (pokemons.length < 6) {
+      setError('');
       add(details);
     } else {
-      setError('You can only pick six pokemans');
+      showError('You can only pick six pokemans');
     }
   };
 
