@@ -4,11 +4,19 @@ import Details from '../containers/Details';
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState('');
   const [details, setDetails] = useState([]);
+  const [loading, setLoading] = useState(false);
   const search = () => {
+    setLoading(true);
     fetch(`https://pokeapi.co/api/v2/pokemon/${searchValue}`)
       .then(data => data.json())
-      .then(res => setDetails(res))
-      .catch(() => setDetails(500));
+      .then(res => {
+        setLoading(false);
+        setDetails(res);
+      })
+      .catch(() => {
+      setLoading(false);
+      setDetails(500)
+      });
   };
   const update = e => {
     setSearchValue(e.target.value);
@@ -29,7 +37,7 @@ const SearchBar = () => {
           </button>
         </div>
       </div>
-      <Details details={details} />
+      <Details details={details} loading={loading} />
     </div>
   );
 };

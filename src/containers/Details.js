@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 });
 
 const Details = ({
-  details, add, pokemons, loaded,
+  details, add, pokemons, loading,
 }) => {
   const [error, setError] = useState('');
   const showError = error => {
@@ -33,6 +33,14 @@ const Details = ({
     }
   };
 
+  if (loading) {
+    return (
+      <div class="spinner-border text-primary mt-2" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+    )
+  }
+
   if (details === 500 || details.count > 0) {
     return (
       <h6>
@@ -44,7 +52,7 @@ const Details = ({
   if (Object.keys(details).length > 0) {
     return (
       <div className="detailsDiv text-left row justify-content-center">
-        <h6 className="error">{loaded ? '' : error}</h6>
+        <h6 className="error">{error}</h6>
         <div className="col-md-8">
           <h6>
             Name:
