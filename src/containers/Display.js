@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { VIEW } from '../actions';
+import { VIEW, DELETE, EDIT } from '../actions';
 
 const mapStateToProps = state => ({
   pokemons: state.pokemons,
@@ -8,13 +8,40 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   view: index => dispatch(VIEW(index)),
+  remove: index => dispatch(DELETE(index)),
 });
 
-const Display = ({ pokemons, view }) => {
+const Display = ({ pokemons, view, remove }) => {
+  const discard = index => {
+    view(0);
+    remove(index);
+  };
+
+  const handle = async index => {
+    await view(0);
+    view(index + 1);
+    // setTimeout(() => {
+
+    // }, 300);
+  };
   const listItems = pokemons.map((pokemon, index) => (
-    <div key={index} onClick={() => view(index + 1)}>
-      <img src={pokemon.sprites.front_default} />
-      <p>{pokemon.forms[0].name}</p>
+    <div key={index} className="pokeImages justify-content-center">
+      <img
+        alt="pokemon pic"
+        src={pokemon.sprites.front_default}
+        className="justify-content-center"
+      />
+      <i
+        className="fa fa-trash-o"
+        aria-hidden="true"
+        onClick={() => discard(index)}
+      />
+      <p
+        className="pokeName text-left"
+        onClick={() => handle(index)}
+      >
+        {pokemon.nickName || pokemon.forms[0].name }
+      </p>
     </div>
   ));
 

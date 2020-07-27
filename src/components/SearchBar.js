@@ -14,8 +14,8 @@ const SearchBar = () => {
         setDetails(res);
       })
       .catch(() => {
-      setLoading(false);
-      setDetails(500)
+        setLoading(false);
+        setDetails(500);
       });
   };
   const update = e => {

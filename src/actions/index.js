@@ -8,4 +8,17 @@ const VIEW = index => ({
   index,
 });
 
-export { ADD, VIEW };
+const DELETE = index => ({
+  type: 'DELETE',
+  index,
+});
+
+const EDIT = (index, extra) => ({
+  type: 'EDIT',
+  index,
+  extra,
+});
+
+export {
+  ADD, VIEW, EDIT, DELETE,
+};

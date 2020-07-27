@@ -1,17 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Form from '../components/Form';
+import { EDIT, VIEW } from '../actions';
 
 const mapStateToProps = state => ({
   pokemons: state.pokemons,
   index: state.currentIndex,
 });
 
-const Customize = ({ pokemons, index }) => {
+const mapDispatchToProps = dispatch => ({
+  edit: (index, extra) => dispatch(EDIT(index, extra)),
+  remove: index => dispatch(VIEW(index)),
+});
+
+const Customize = ({
+  pokemons, index, edit, remove,
+}) => {
   const currentPokemon = index > 0 ? pokemons[index - 1] : null;
+  const save = extra => {
+    edit(index - 1, extra);
+  };
+
   if (index > 0) {
     return (
-      <div className="">
+      <div className="justify-content-center">
         <h6 className="text-center pokeHeading">
           Form for
           <span>
@@ -19,7 +31,7 @@ const Customize = ({ pokemons, index }) => {
             { currentPokemon.forms[0].name }
           </span>
         </h6>
-        <Form current={currentPokemon} />
+        <Form current={currentPokemon} save={save} remove={remove} />
       </div>
     );
   }
@@ -34,4 +46,4 @@ const Customize = ({ pokemons, index }) => {
   );
 };
 
-export default connect(mapStateToProps)(Customize);
+export default connect(mapStateToProps, mapDispatchToProps)(Customize);
