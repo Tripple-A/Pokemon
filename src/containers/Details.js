@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { ADD } from '../actions';
 
 const mapDispatchToProps = dispatch => ({
@@ -12,7 +13,7 @@ const mapStateToProps = state => ({
 });
 
 const Details = ({
-  details, add, pokemons, loading, savedNames
+  details, add, pokemons, loading, savedNames,
 }) => {
   const [error, setError] = useState('');
   const showError = error => {
@@ -32,6 +33,7 @@ const Details = ({
     } else {
       showError('You can only pick six pokemans');
     }
+    return null;
   };
 
   if (loading) {
@@ -92,6 +94,22 @@ const Details = ({
       </h6>
     </div>
   );
+};
+
+Details.propTypes = {
+  add: PropTypes.func.isRequired,
+  savedNames: PropTypes.arrayOf(Object).isRequired,
+  pokemons: PropTypes.arrayOf(Object).isRequired,
+  loading: PropTypes.bool.isRequired,
+  details: PropTypes.shape({
+    forms: PropTypes.arrayOf(Object).isRequired,
+    count: PropTypes.number.isRequired,
+    weight: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    sprites: PropTypes.shape({
+      front_default: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Details);
