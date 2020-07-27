@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const SearchBar = () => (
-  <div classNameName="searchDiv row justify-content-center">
-    <form>
+const SearchBar = () => {
+  const [searchValue, setSearchValue] = useState('');
+  const search = () => {
+  };
+  const update = e => {
+    setSearchValue(e.target.value);
+  };
+  return (
+    <div className="searchDiv row justify-content-center">
       <div className="input-group">
-        <input type="text" className="form-control" placeholder="Search" />
-        <div className="input-group-btn">
-          <button className="btn btn-default" type="submit">
-            <i className="glyphicon glyphicon-search" />
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Search for pokemon by name"
+          onChange={update}
+          value={searchValue}
+        />
+        <div className="input-group-append">
+          <button className="btn btn-secondary" type="button" onClick={search}>
+            <i className="fa fa-search" />
           </button>
         </div>
       </div>
-    </form>
-  </div>
-);
+    </div>
+  );
+};
 
 export default SearchBar;

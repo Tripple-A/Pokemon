@@ -7,10 +7,8 @@ import './styles/index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
-
 const store = createStore(rootReducer);
 console.log(store.getState());
-
 
 ReactDOM.render(
   <React.StrictMode>

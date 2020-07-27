@@ -5,7 +5,13 @@
     margin-top: 2rem;
 }
 
-.searchDiv{
+.searchContainer{
     border-left: 1px solid black;
+    padding-top: 1rem;
+}
 
+.searchDiv{
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
 }
