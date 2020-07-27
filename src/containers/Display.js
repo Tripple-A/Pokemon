@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
 
 const Display = ({ pokemons, view }) => {
   const listItems = pokemons.map((pokemon, index) => (
-    <div key={index} onClick={() => view(index)}>
+    <div key={index} onClick={() => view(index + 1)}>
       <img src={pokemon.sprites.front_default} />
       <p>{pokemon.forms[0].name}</p>
     </div>
@@ -21,7 +21,7 @@ const Display = ({ pokemons, view }) => {
   if (pokemons.length > 0) {
     return (
       <div>
-        <h6 className="text-center">Pokemons</h6>
+        <h6 className="text-center pokeHeading">Pokemons</h6>
         <div className="pokePics">
           { listItems }
         </div>

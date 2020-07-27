@@ -33,3 +33,7 @@ input:focus{
 .error{
     color: red
 }
+
+.pokeHeading{
+    background-color: rgb(117, 123, 129);
+}
