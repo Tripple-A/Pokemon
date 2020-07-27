@@ -4,8 +4,6 @@ const pokemons = (state = [], action) => {
     case 'ADD':
       newArr = [...state, action.pokemon];
       return newArr;
-    case 'RESET':
-      return action.word;
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { ADD } from '../actions';
 
@@ -10,21 +10,23 @@ const mapStateToProps = state => ({
   pokemons: state.pokemons,
 });
 
-const Details = ({ details, add, pokemons, loaded }) => {
+const Details = ({
+  details, add, pokemons, loaded,
+}) => {
   const [error, setError] = useState('');
   const checkAdd = details => {
-    if(pokemons.includes(details)) {
-    setError('Pokemon already exists in catalogue');
-    return null;
+    if (pokemons.includes(details)) {
+      setError('Pokemon already exists in catalogue');
+      return null;
     }
-    if (pokemons.length < 6){
-    add(details)
-    }else{
-    setError('You can only pick six pokemans')
+    if (pokemons.length < 6) {
+      add(details);
+    } else {
+      setError('You can only pick six pokemans');
     }
-  }
+  };
 
-  if ( details === 500 || details.count > 0 ) {
+  if (details === 500 || details.count > 0) {
     return (
       <h6>
         There was an error with your search,

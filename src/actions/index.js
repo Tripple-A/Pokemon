@@ -3,4 +3,9 @@ const ADD = pokemon => ({
   pokemon,
 });
 
-export { ADD };
+const VIEW = index => ({
+  type: 'VIEW',
+  index,
+});
+
+export { ADD, VIEW };
