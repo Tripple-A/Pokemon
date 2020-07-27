@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Form = ({
-  current, save, index, remove
+  current, save, index, remove,
 }) => {
   const [nickName, setNickname] = useState(current.nickName);
   const [favColor, setFavColor] = useState(current.favColor);
@@ -63,6 +63,18 @@ const Form = ({
       </div>
     </div>
   );
+};
+
+Form.propTypes = {
+  current: PropTypes.shape({
+    nickName: PropTypes.string,
+    favColor: PropTypes.string,
+    captureDate: PropTypes.instanceOf(Date),
+  }).isRequired,
+  save: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+  remove: PropTypes.func.isRequired,
+
 };
 
 export default Form;
