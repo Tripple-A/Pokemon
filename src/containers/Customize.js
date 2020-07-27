@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Form from '../components/Form';
 import { EDIT, VIEW } from '../actions';
@@ -41,9 +42,16 @@ const Customize = ({
 
       <h6 className="text-center pokeHeading">Forms</h6>
 
-      <p className="text-center">Select a pokemon to view and customize it's properties</p>
+      <p className="text-center">Select a pokemon to view and customize it&apos;s properties</p>
     </div>
   );
+};
+
+Customize.propTypes = {
+  pokemons: PropTypes.arrayOf(PropTypes.object).isRequired,
+  edit: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+  remove: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Customize);

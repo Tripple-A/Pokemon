@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Form = ({
-  current, save, index, remove,
+  current, save, remove,
 }) => {
   const [nickName, setNickname] = useState(current.nickName);
   const [favColor, setFavColor] = useState(current.favColor);
@@ -23,10 +23,10 @@ const Form = ({
 
   return (
     <div>
-      <p>{index}</p>
       <div className="form-group">
         <label>Nickname: </label>
         <input
+          name="nickname"
           className="form-control"
           type="text"
           value={nickName}
@@ -72,9 +72,7 @@ Form.propTypes = {
     captureDate: PropTypes.instanceOf(Date),
   }).isRequired,
   save: PropTypes.func.isRequired,
-  index: PropTypes.number.isRequired,
   remove: PropTypes.func.isRequired,
-
 };
 
 export default Form;
