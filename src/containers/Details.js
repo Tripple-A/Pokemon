@@ -7,7 +7,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const Details = ({ details, add }) => {
-  if (details === 500) {
+  if ( details === 500 || details.count > 0 ) {
     return (
       <h6>
         There was an error with your search,

@@ -14,7 +14,7 @@ const Display = ({ pokemons }) => {
   return (
     <div>
       Pokemons
-      <div>
+      <div className="pokePics">
           { listItems }
       </div>
     </div>

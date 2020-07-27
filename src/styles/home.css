@@ -24,3 +24,8 @@ input:focus{
     outline: none;
     border: none;
 }
+
+.pokePics{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
