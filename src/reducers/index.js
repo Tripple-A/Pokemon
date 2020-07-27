@@ -1,5 +1,12 @@
 const rootReducer = (state = [], action) => {
-  return state;
+  switch (action.type) {
+    case 'CHANGE FILTER':
+      return action.word;
+    case 'RESET':
+      return action.word;
+    default:
+      return state;
+  }
 };
 
 export default rootReducer;
