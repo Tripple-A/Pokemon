@@ -29,3 +29,7 @@ input:focus{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
+
+.error{
+    color: red
+}

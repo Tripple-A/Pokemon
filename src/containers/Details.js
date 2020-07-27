@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import { ADD } from '../actions';
 
@@ -6,7 +6,24 @@ const mapDispatchToProps = dispatch => ({
   add: pokemon => dispatch(ADD(pokemon)),
 });
 
-const Details = ({ details, add }) => {
+const mapStateToProps = state => ({
+  pokemons: state.pokemons,
+});
+
+const Details = ({ details, add, pokemons, loaded }) => {
+  const [error, setError] = useState('');
+  const checkAdd = details => {
+    if(pokemons.includes(details)) {
+    setError('Pokemon already exists in catalogue');
+    return null;
+    }
+    if (pokemons.length < 6){
+    add(details)
+    }else{
+    setError('You can only pick six pokemans')
+    }
+  }
+
   if ( details === 500 || details.count > 0 ) {
     return (
       <h6>
@@ -18,6 +35,7 @@ const Details = ({ details, add }) => {
   if (Object.keys(details).length > 0) {
     return (
       <div className="detailsDiv text-left row justify-content-center">
+        <h6 className="error">{loaded ? '' : error}</h6>
         <div className="col-md-8">
           <h6>
             Name:
@@ -42,7 +60,7 @@ const Details = ({ details, add }) => {
         <button
           type="button"
           className="btn btn-primary"
-          onClick={() => add(details)}
+          onClick={() => checkAdd(details)}
         >
           Add Pokemon
         </button>
@@ -58,4 +76,4 @@ const Details = ({ details, add }) => {
   );
 };
 
-export default connect(null, mapDispatchToProps)(Details);
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

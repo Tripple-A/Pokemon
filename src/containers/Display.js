@@ -6,14 +6,17 @@ const mapStateToProps = state => ({
 });
 
 const Display = ({ pokemons }) => {
-    const listItems = pokemons.map((pokemon,index) =>
-    <img src={pokemon.sprites.front_default} key={index} />
+    const listItems = pokemons.map((pokemon, index) =>
+    <div key={index}>
+    <img src={pokemon.sprites.front_default}  />
+    <p>{pokemon.forms[0].name}</p>
+    </div>
   );
 
   if(pokemons.length > 0)
   return (
     <div>
-      Pokemons
+      <h6 className="text-center">Pokemons</h6>
       <div className="pokePics">
           { listItems }
       </div>
@@ -21,7 +24,7 @@ const Display = ({ pokemons }) => {
   ); else
   return(
       <div>
-          <h6>You have not chosen any pokemons</h6>
+          <h6 className="text-center">You have not chosen any pokemons</h6>
       </div>
   )
   
