@@ -7,7 +7,8 @@ const SearchBar = () => {
   const search = () => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${searchValue}`)
       .then(data => data.json())
-      .then(res => setDetails(res));
+      .then(res => setDetails(res))
+      .catch(() => setDetails(500));
   };
   const update = e => {
     setSearchValue(e.target.value);
