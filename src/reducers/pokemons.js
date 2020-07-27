@@ -1,21 +1,26 @@
 const obj = {
-  pokemons: [],
+  list: [],
   savedNames: [],
 };
 
-const pokemons = (state = [], action) => {
-  let newArr;
+const slice = (arr, index) => arr.filter((item, ind) => ind !== index);
+
+const pokemons = (state = obj, action) => {
+  const newArr = { ...state };
   let newObj;
   switch (action.type) {
     case 'ADD':
-      return [...state, action.pokemon];
+      newArr.savedNames.push(action.pokemon.forms[0].name);
+      newArr.list = [...state.list, action.pokemon];
+      return newArr;
     case 'EDIT':
-      newArr = [...state];
-      newObj = { ...newArr[action.index], ...action.extra };
-      newArr[action.index] = newObj;
+      newObj = { ...newArr.list[action.index], ...action.extra };
+      newArr.list[action.index] = newObj;
       return newArr;
     case 'DELETE':
-      return state.filter((item, index) => index !== action.index);
+      newArr.list = slice(newArr.list, action.index);
+      newArr.savedNames = slice(newArr.savedNames, action.index);
+      return newArr;
     default:
       return state;
   }

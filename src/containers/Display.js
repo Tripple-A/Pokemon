@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { VIEW, DELETE, EDIT } from '../actions';
+import { VIEW, DELETE } from '../actions';
 
 const mapStateToProps = state => ({
-  pokemons: state.pokemons,
+  newList: state.pokemons,
+  pokemons: state.pokemons.list,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -20,10 +21,8 @@ const Display = ({ pokemons, view, remove }) => {
   const handle = async index => {
     await view(0);
     view(index + 1);
-    // setTimeout(() => {
-
-    // }, 300);
   };
+  
   const listItems = pokemons.map((pokemon, index) => (
     <div key={index} className="pokeImages justify-content-center">
       <img

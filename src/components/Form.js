@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Form = ({
-  current, save, index, remove, pokemons,
+  current, save, index, remove
 }) => {
   const [nickName, setNickname] = useState(current.nickName);
   const [favColor, setFavColor] = useState(current.favColor);

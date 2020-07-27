@@ -4,7 +4,7 @@ import Form from '../components/Form';
 import { EDIT, VIEW } from '../actions';
 
 const mapStateToProps = state => ({
-  pokemons: state.pokemons,
+  pokemons: state.pokemons.list,
   index: state.currentIndex,
 });
 

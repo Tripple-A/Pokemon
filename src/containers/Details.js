@@ -7,11 +7,12 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  pokemons: state.pokemons,
+  pokemons: state.pokemons.list,
+  savedNames: state.pokemons.savedNames,
 });
 
 const Details = ({
-  details, add, pokemons, loading,
+  details, add, pokemons, loading, savedNames
 }) => {
   const [error, setError] = useState('');
   const showError = error => {
@@ -21,7 +22,7 @@ const Details = ({
     }, 3000);
   };
   const checkAdd = details => {
-    if (pokemons.includes(details)) {
+    if (savedNames.includes(details.forms[0].name)) {
       showError(`${details.forms[0].name} already exists in catalogue`);
       return null;
     }
