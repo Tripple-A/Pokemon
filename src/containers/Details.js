@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import { ADD } from '../actions';
 
 const mapDispatchToProps = dispatch => ({
-  add: pokemon => {
-    console.log('start dispatch')
-    dispatch(ADD(pokemon))
-  },
+  add: pokemon => dispatch(ADD(pokemon)),
 });
 
 const Details = ({ details, add }) => {
