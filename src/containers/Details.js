@@ -1,16 +1,21 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { ADD } from '../actions';
 
-const Details = ({ details }) => {
-  if(details === 500){
-    return(
+const mapDispatchToProps = dispatch => ({
+  add: pokemon => dispatch(ADD(pokemon)),
+});
+
+const Details = ({ details, add }) => {
+  if (details === 500) {
+    return (
       <h6>
         There was an error with your search,
         Please try searching with a valid name or number
       </h6>
-    )
-
-  } else if (Object.keys(details).length > 0) {
+    );
+  }
+  if (Object.keys(details).length > 0) {
     return (
       <div className="detailsDiv text-left row justify-content-center">
         <div className="col-md-8">
@@ -29,11 +34,18 @@ const Details = ({ details }) => {
         </div>
         <div className="col-md-4">
           <img
+            alt="pokemon pic"
             src={details.sprites.front_default}
             className="pokeImg"
           />
         </div>
-        <button className="btn btn-primary">Add Pokemon</button>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={() => add(details)}
+        >
+          Add Pokemon
+        </button>
       </div>
     );
   }
@@ -44,8 +56,6 @@ const Details = ({ details }) => {
       </h6>
     </div>
   );
-
-  return null;
 };
 
-export default Details;
+export default connect(null, mapDispatchToProps)(Details);
