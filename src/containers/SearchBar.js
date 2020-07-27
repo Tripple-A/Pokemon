@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState('');
+  const [details, setDetails] = useState([]);
   const search = () => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${searchValue}`)
+      .then(data => data.json())
+      .then(res => setDetails(res));
   };
   const update = e => {
     setSearchValue(e.target.value);
@@ -13,7 +17,7 @@ const SearchBar = () => {
         <input
           type="text"
           className="form-control"
-          placeholder="Search for pokemon by name"
+          placeholder="Search by name or number"
           onChange={update}
           value={searchValue}
         />
