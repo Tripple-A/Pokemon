@@ -125,4 +125,8 @@ Details.propTypes = {
   }),
 };
 
+Details.defaultProps = {
+  details: {},
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(Details);
