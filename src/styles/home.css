@@ -28,6 +28,7 @@ input:focus{
 .pokePics{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
 }
 
 .error{
@@ -42,17 +43,25 @@ input:focus{
 .pokeImages{
   border: 1px solid rgb(133, 128, 128);
   background-color: rgb(235, 239, 243);
-  padding-left: 1rem;
+  padding-left: 2rem;
+}
+
+.pokeName, .trash{
+    margin-left: 1rem;
+    border: none;
+    background-color: white;
 }
 
 .trash{
     color:red;
     position: absolute;
-    margin-top: 1rem;
-    margin-right: -2rem;
+    margin-top: 0.5rem;
+    margin-left: -0.5rem;
 }
-.pokeName, .trash{
-    margin-left: 1rem;
-    border: none;
-    background-color: white;
+
+#logo{
+    width: 30%;
+    height: 10rem;
+    margin-top: -3rem;
+    margin-left: 12rem;
 }

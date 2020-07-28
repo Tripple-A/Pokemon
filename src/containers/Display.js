@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { VIEW, DELETE } from '../actions';
+import Logo from '../images/pokemon.png'
 
 const mapStateToProps = state => ({
   newList: state.pokemons,
@@ -51,7 +52,7 @@ const Display = ({ pokemons, view, remove }) => {
   if (pokemons.length > 0) {
     return (
       <div>
-        <h6 className="text-center pokeHeading">Pokemons</h6>
+        <img src={Logo} alt="pokemon logo" id="logo" />
         <div className="pokePics">
           { listItems }
         </div>
