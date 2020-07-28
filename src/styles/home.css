@@ -45,13 +45,14 @@ input:focus{
   padding-left: 1rem;
 }
 
-.fa-trash-o{
+.trash{
     color:red;
     position: absolute;
     margin-top: 1rem;
     margin-right: -2rem;
-    margin-left: 1rem;
 }
-.pokeName{
-    margin-left: 1rem
+.pokeName, .trash{
+    margin-left: 1rem;
+    border: none;
+    background-color: white;
 }

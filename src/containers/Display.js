@@ -31,17 +31,20 @@ const Display = ({ pokemons, view, remove }) => {
         src={pokemon.sprites.front_default}
         className="justify-content-center"
       />
-      <i
-        className="fa fa-trash-o"
-        aria-hidden="true"
-        onClick={() => discard(index)}
-      />
-      <p
+      <button type="button" className="trash">
+        <i
+          className="fa fa-trash-o"
+          aria-hidden="true"
+          onClick={() => discard(index)}
+        />
+      </button>
+      <button
         className="pokeName text-left"
         onClick={() => handle(index)}
+        type="button"
       >
         {pokemon.nickName || pokemon.forms[0].name }
-      </p>
+      </button>
     </div>
   ));
 
