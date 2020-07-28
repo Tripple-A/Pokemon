@@ -1,5 +1,5 @@
 # Pokemon-App
-An app that enables you careate your own Pokedex.
+An app that enables you create your own Pokedex.
 
 ## Table of Contents
 
