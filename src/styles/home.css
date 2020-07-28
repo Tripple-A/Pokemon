@@ -19,7 +19,6 @@
     margin-bottom: 1rem;
     margin-right: 1rem;
     margin-left: 1rem;
-    border: 1px solid black;
 }
 
 label{
@@ -149,4 +148,8 @@ span{
 
 .inputDiv{
     margin-left: -1rem;
+}
+
+#search{
+    width: 16rem
 }
