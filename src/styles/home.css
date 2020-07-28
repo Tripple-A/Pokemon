@@ -76,8 +76,12 @@ label{
 }
 
 .pokeName{
-    width: 90%;
+    white-space:normal !important;
+    word-wrap:break-word;
+    max-width: 8rem;
+    width:90%;
 }
+
 .pokeName, .trash{
     border: none;
     background-color: rgb(96,139,253);
@@ -152,4 +156,8 @@ span{
 
 #search{
     width: 16rem
+}
+
+.spinner-border{
+    margin-left: 9rem
 }

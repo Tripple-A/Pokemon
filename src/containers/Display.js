@@ -23,7 +23,7 @@ const Display = ({ pokemons, view, remove }) => {
   const listItems = pokemons.map((pokemon, index) => (
     <div key={pokemon.forms[0].name} className="pokeImages justify-content-center">
       <button
-        className="pokeName text-left"
+        className="pokeName text-justify"
         onClick={() => view(index + 1)}
         type="button"
         data-testid="viewButton"
