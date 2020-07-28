@@ -1,11 +1,11 @@
 # Pokemon-App
-An app that enables you careate your own Pokedex.
+An app that enables you create your own Pokedex.
 
 ## Table of Contents
 
 * [User Features](#user-features)
 * [Concepts and APIs Employed](#concepts-and-apis-employed)
-* [Built with](#built-with)
+* [Built with](#built-and-tested-with)
 * [Live Preview](#live-preview)
 * [Required Installations](#required-installations)
 * [Installation of This App](#instalation)
@@ -18,21 +18,20 @@ An app that enables you careate your own Pokedex.
 * A user can fetch details of any pokemon of choice by searching via pokemon name or id
 * On successful fetch, a user sees the name, weight and height of the pokemon fetched and has the option of adding it to his catalogue.
 * A user can add upto 6 pokemons to his catalogue but he cannot add a pokemon that already exists.
-* A user can customize any pokemon in his catalogue by clicking on the pokemon name and filling the form that follows.
-* A user can delete pokemons he no longer wants present in his catalogue.
+* A user can customize any pokemon in his catalogue by clicking on the pokemon's name and filling the form that follows.
+* A user can delete any pokemon he no longer wants present in his catalogue.
 
 <!-- concepts and apis employed -->
 ## Concepts and APIs Employed
 * It employs the [Poke API](https://pokeapi.co/) to fetch pokemon information.
 * Redux is used for state management.
 
-<!-- BUILT wITH -->
-## Built with
+<!-- BUILT AND TESTED WITH -->
+## Built and tested with
 * HTML5
 * CSS
 * React
 * Redux
-Tested using: 
 * React Testing Library
 * Jest
 
