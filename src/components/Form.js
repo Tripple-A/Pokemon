@@ -40,7 +40,7 @@ const Form = ({
 
   return (
     <div>
-      <div className="form-group">
+      <div className="form-group animate__animated animate__zoomIn">
         <label htmlFor="nickName">Nickname: </label>
         <input
           id="nickName"
@@ -69,7 +69,7 @@ const Form = ({
           onChange={handleChange}
         />
         <button
-          className="mr-2 btn btn-primary"
+          className="mr-2 btn btn-primary mt-2"
           onClick={update}
           type="button"
           data-testid="saveButton"
@@ -78,7 +78,7 @@ const Form = ({
         </button>
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-primary mt-2"
           onClick={cancel}
         >
           Cancel

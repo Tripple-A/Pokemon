@@ -23,20 +23,20 @@ const SearchBar = () => {
   };
   return (
     <div className="searchDiv row justify-content-center">
-      <div className="input-group">
-        <label htmlFor="search">Search</label>
-        <input
-          id="search"
-          type="text"
-          className="form-control"
-          placeholder="Search by name or number"
-          onChange={update}
-          value={searchValue}
-          data-testid="typeHere"
-        />
-        <div className="input-group-append">
+      <div className="form-group">
+        <label htmlFor="search">Pokemon Online Search </label>
+        <div className="input-group form-group">
+          <input
+            id="search"
+            type="text"
+            className="form-control search"
+            placeholder="Search by name or number"
+            onChange={update}
+            value={searchValue}
+            data-testid="typeHere"
+          />
           <button
-            className="btn btn-secondary"
+            className="searchBtn"
             type="button"
             onClick={search}
             data-testid="clickHere"

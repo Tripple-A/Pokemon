@@ -21,7 +21,7 @@ const Details = ({
   }, [loading]);
 
   const checkAdd = details => {
-    if (savedNames.includes(details.forms[0].name)) {
+    if (savedNames.includes(details.id)) {
       setError(`${details.forms[0].name} already exists in catalogue`);
       return null;
     }
@@ -44,7 +44,7 @@ const Details = ({
 
   if (details === 500 || details.count > 0) {
     return (
-      <h6>
+      <h6 className="info error">
         There was an error with your search,
         Please try searching with a valid name or number
       </h6>
@@ -55,18 +55,27 @@ const Details = ({
       <div className="detailsDiv text-left row justify-content-center">
         <h6 className="error">{error}</h6>
         <div className="col-md-8">
-          <h6>
-            Name:
-            {details.forms[0].name}
-          </h6>
-          <h6>
-            Weight:
-            {details.weight}
-          </h6>
-          <h6>
-            Height:
-            {details.height}
-          </h6>
+          <div className="myDetails">
+            <h6>
+              Name:
+              {details.forms[0].name}
+            </h6>
+          </div>
+          <div className="myDetails">
+            <h6>
+              Weight:
+              {details.weight}
+            </h6>
+          </div>
+          <div className="myDetails">
+            <h6>
+              Height:
+              <span>
+                {details.height}
+              </span>
+            </h6>
+          </div>
+
         </div>
         <div className="col-md-4">
           <img
@@ -87,7 +96,7 @@ const Details = ({
   }
   return (
     <div>
-      <h6>
+      <h6 className="info">
         I am here to display the pokemons you search for. Please keep me busy.
       </h6>
     </div>
@@ -104,6 +113,7 @@ Details.propTypes = {
     count: PropTypes.number,
     weight: PropTypes.number,
     height: PropTypes.number,
+    id: PropTypes.number,
     sprites: PropTypes.shape({
       front_default: PropTypes.string.isRequired,
     }),

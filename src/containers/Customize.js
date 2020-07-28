@@ -40,9 +40,9 @@ const Customize = ({
   return (
     <div>
 
-      <h6 className="text-center pokeHeading">Forms</h6>
+      <h6 className="text-center pokeHeading">Customize your Pokemons</h6>
 
-      <p className="text-center">Select a pokemon to view and customize it&apos;s properties</p>
+      <p className="text-center info ">Click on a pokemon&apos;s name to view and customize it&apos;s properties</p>
     </div>
   );
 };

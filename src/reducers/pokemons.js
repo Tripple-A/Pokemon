@@ -10,7 +10,7 @@ const pokemons = (state = obj, action) => {
   let newObj;
   switch (action.type) {
     case 'ADD':
-      newArr.savedNames.push(action.pokemon.forms[0].name);
+      newArr.savedNames.push(action.pokemon.id);
       newArr.list = [...state.list, action.pokemon];
       return newArr;
     case 'EDIT':

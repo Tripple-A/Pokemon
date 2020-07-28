@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { VIEW, DELETE } from '../actions';
-import Logo from '../images/pokemon.png'
+import Logo from '../images/pokemon.png';
 
 const mapStateToProps = state => ({
   newList: state.pokemons,
@@ -27,17 +27,6 @@ const Display = ({ pokemons, view, remove }) => {
 
   const listItems = pokemons.map((pokemon, index) => (
     <div key={pokemon.forms[0].name} className="pokeImages justify-content-center">
-      <img
-        alt="pokemon pic"
-        src={pokemon.sprites.front_default}
-        className="justify-content-center"
-      />
-      <button type="button" className="trash" data-testid="deleteButton" onClick={() => discard(index)}>
-        <i
-          className="fa fa-trash-o"
-          aria-hidden="true"
-        />
-      </button>
       <button
         className="pokeName text-left"
         onClick={() => handle(index)}
@@ -46,6 +35,21 @@ const Display = ({ pokemons, view, remove }) => {
       >
         {pokemon.nickName || pokemon.forms[0].name }
       </button>
+      <button type="button" className="trash" data-testid="deleteButton" onClick={() => discard(index)}>
+        <i
+          className="fa fa-trash-o"
+          aria-hidden="true"
+        />
+      </button>
+      <img
+        alt="pokemon pic"
+        src={pokemon.sprites.front_default}
+        className="justify-content-center pokPic"
+      />
+      <p className="id">
+        #
+        {pokemon.id}
+      </p>
     </div>
   ));
 
@@ -59,8 +63,8 @@ const Display = ({ pokemons, view, remove }) => {
       </div>
     );
   } return (
-    <div>
-      <h6 className="text-center">You have not chosen any pokemons</h6>
+    <div className="animate__animated animate__bounce">
+      <h6 className="text-center info">You have not chosen any pokemons</h6>
     </div>
   );
 };
