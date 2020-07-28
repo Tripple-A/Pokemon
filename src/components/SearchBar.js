@@ -7,7 +7,8 @@ const SearchBar = () => {
   const [loading, setLoading] = useState(false);
   const search = () => {
     setLoading(true);
-    fetch(`https://pokeapi.co/api/v2/pokemon/${searchValue}`)
+    const search = searchValue.toLowerCase();
+    fetch(`https://pokeapi.co/api/v2/pokemon/${search}`)
       .then(data => data.json())
       .then(res => {
         setLoading(false);
