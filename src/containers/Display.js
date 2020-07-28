@@ -14,8 +14,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const Display = ({ pokemons, view, remove }) => {
-  const discard = index => {
-    view(0);
+  const discard = async index => {
+    await view(0);
     remove(index);
   };
 
@@ -31,17 +31,17 @@ const Display = ({ pokemons, view, remove }) => {
         src={pokemon.sprites.front_default}
         className="justify-content-center"
       />
-      <button type="button" className="trash">
+      <button type="button" className="trash" data-testid="deleteButton" onClick={() => discard(index)}>
         <i
           className="fa fa-trash-o"
           aria-hidden="true"
-          onClick={() => discard(index)}
         />
       </button>
       <button
         className="pokeName text-left"
         onClick={() => handle(index)}
         type="button"
+        data-testid="viewButton"
       >
         {pokemon.nickName || pokemon.forms[0].name }
       </button>

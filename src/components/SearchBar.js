@@ -24,15 +24,23 @@ const SearchBar = () => {
   return (
     <div className="searchDiv row justify-content-center">
       <div className="input-group">
+        <label htmlFor="search">Search</label>
         <input
+          id="search"
           type="text"
           className="form-control"
           placeholder="Search by name or number"
           onChange={update}
           value={searchValue}
+          data-testid="typeHere"
         />
         <div className="input-group-append">
-          <button className="btn btn-secondary" type="button" onClick={search}>
+          <button
+            className="btn btn-secondary"
+            type="button"
+            onClick={search}
+            data-testid="clickHere"
+          >
             <i className="fa fa-search" />
           </button>
         </div>

@@ -41,24 +41,27 @@ const Form = ({
   return (
     <div>
       <div className="form-group">
-        <label>Nickname: </label>
+        <label htmlFor="nickName">Nickname: </label>
         <input
+          id="nickName"
           name="nickName"
           className="form-control"
           type="text"
           value={nickName}
           onChange={e => handleChange(e)}
         />
-        <label>Favorite Color: </label>
+        <label htmlFor="favColor">Favorite Color: </label>
         <input
+          id="favColor"
           className="form-control"
           name="favColor"
           type="text"
           value={favColor}
           onChange={handleChange}
         />
-        <label>Capture Date: </label>
+        <label htmlFor="captureDate">Capture Date: </label>
         <input
+          id="captureDate"
           className="form-control"
           type="date"
           name="captureDate"
@@ -69,6 +72,7 @@ const Form = ({
           className="mr-2 btn btn-primary"
           onClick={update}
           type="button"
+          data-testid="saveButton"
         >
           Save
         </button>
