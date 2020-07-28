@@ -39,6 +39,7 @@ test('it integrates all components perfectly', async () => {
   expect(screen.getByLabelText(/Nickname:/i).value).toBe('Test Pokemon');
   const deleteButton = screen.getByTestId('deleteButton');
   fireEvent.click(deleteButton);
-  const pokemon = await screen.findByText('Test Pokemon');
-  expect(pokemon).not.toBeInTheDocument();
+  expect(screen.getAllByAltText('pokemon pic').length).toBe(1);
+  const pokemon = await screen.findByText(/You have not chosen any pokemons/i);
+  expect(pokemon).toBeInTheDocument();
 });

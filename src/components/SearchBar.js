@@ -16,7 +16,7 @@ const SearchBar = () => {
       })
       .catch(() => {
         setLoading(false);
-        setDetails(500);
+        setDetails({ error: 500 });
       });
   };
   const update = e => {

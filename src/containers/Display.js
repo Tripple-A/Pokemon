@@ -15,21 +15,16 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const Display = ({ pokemons, view, remove }) => {
-  const discard = async index => {
-    await view(0);
+  const discard = index => {
+    view(0);
     remove(index);
-  };
-
-  const handle = async index => {
-    await view(0);
-    view(index + 1);
   };
 
   const listItems = pokemons.map((pokemon, index) => (
     <div key={pokemon.forms[0].name} className="pokeImages justify-content-center">
       <button
         className="pokeName text-left"
-        onClick={() => handle(index)}
+        onClick={() => view(index + 1)}
         type="button"
         data-testid="viewButton"
       >

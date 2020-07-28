@@ -42,7 +42,7 @@ const Details = ({
     );
   }
 
-  if (details === 500 || details.count > 0) {
+  if (details.error === 500 || details.count > 0) {
     return (
       <h6 className="info error">
         There was an error with your search,
@@ -118,6 +118,7 @@ Details.propTypes = {
     count: PropTypes.number,
     weight: PropTypes.number,
     height: PropTypes.number,
+    error: PropTypes.number,
     id: PropTypes.number,
     sprites: PropTypes.shape({
       front_default: PropTypes.string.isRequired,

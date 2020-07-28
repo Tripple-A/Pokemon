@@ -7,6 +7,14 @@ const Form = ({
   const [nickName, setNickname] = useState(current.nickName || '');
   const [favColor, setFavColor] = useState(current.favColor || '');
   const [captureDate, setCaptureDate] = useState(current.captureDate || '');
+  const [id, setId] = useState(current.id);
+
+  if (current.id !== id) {
+    setId(current.id);
+    setNickname(current.nickName || '');
+    setFavColor(current.favColor || '');
+    setCaptureDate((current.captureDate || ''));
+  }
 
   const cancel = () => {
     remove(0);
@@ -92,6 +100,7 @@ Form.propTypes = {
   current: PropTypes.shape({
     nickName: PropTypes.string,
     favColor: PropTypes.string,
+    id: PropTypes.number,
     captureDate: PropTypes.string,
   }).isRequired,
   save: PropTypes.func.isRequired,
