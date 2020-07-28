@@ -16,7 +16,7 @@ An app that enables you create your own Pokedex.
 <!-- User features -->
 ## User Features
 * A user can fetch details of any pokemon of choice by searching via pokemon name or id
-* On successful fetch, a user sees the name, weight and height of the pokemon fetched and has the option of adding it to his catalogue.
+* On successful fetch, a user sees the name, weight and height of the pokemon fetched and has the option of adding it to his catalogue. This search is case insensitive, hence you don't have to worry about being too careful.
 * A user can add upto 6 pokemons to his catalogue but he cannot add a pokemon that already exists.
 * A user can customize any pokemon in his catalogue by clicking on the pokemon's name and filling the form that follows.
 * A user can delete any pokemon he no longer wants present in his catalogue.
