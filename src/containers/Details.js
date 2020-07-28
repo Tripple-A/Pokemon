@@ -37,7 +37,7 @@ const Details = ({
   if (loading) {
     return (
       <div className="spinner-border text-primary mt-2" role="status">
-        <span className="sr-only">Loading...</span>
+        <div className="sr-only">Loading...</div>
       </div>
     );
   }
