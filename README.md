@@ -1,68 +1,91 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pokemon-App
+An app that enables you careate your own Pokedex.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+* [User Features](#user-features)
+* [Concepts and APIs Employed](#concepts-and-apis-employed)
+* [Built with](#built-with)
+* [Live Preview](#live-preview)
+* [Required Installations](#required-installations)
+* [Installation of This App](#instalation)
+* [License](#license)
+* [Contact](#contact)
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- User features -->
+## User Features
+* A user can fetch details of any pokemon of choice by searching via pokemon name or id
+* On successful fetch, a user sees the name, weight and height of the pokemon fetched and has the option of adding it to his catalogue.
+* A user can add upto 6 pokemons to his catalogue but he cannot add a pokemon that already exists.
+* A user can customize any pokemon in his catalogue by clicking on the pokemon name and filling the form that follows.
+* A user can delete pokemons he no longer wants present in his catalogue.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<!-- concepts and apis employed -->
+## Concepts and APIs Employed
+* It employs the [Poke API](https://pokeapi.co/) to fetch pokemon information.
+* Redux is used for state management.
 
-### `yarn test`
+<!-- BUILT wITH -->
+## Built with
+* HTML5
+* CSS
+* React
+* Redux
+Tested using: 
+* React Testing Library
+* Jest
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+<!-- LIVE PREVIEW -->
+## Live Preview
+Find the live version [here](https://weather-gypsy.herokuapp.com/).
+Below is a screenshot of what it looks like on a laptop screen. It is not mobile responsive yet.
+![Image](/src/images/pokemonProof.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- REQUIRED INSTALLATION -->
+## Required Installations
+* npm
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<!-- INSTALLATION -->
+## Installation of This Repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Once you have installed the required packages shown on the [Required Installations](#required-installations), proceed with the following steps
 
-### `yarn eject`
+Clone the Repository
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```Shell
+your@pc:~$ git clone https://github.com/Tripple-A/Pokemon.git
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Move to the downloaded folder
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```Shell
+your@pc:~$ cd Pokemon
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Install all packages
 
-## Learn More
+```Shell
+your@pc:~$ npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Start the app
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```Shell
+your@pc:~$ npm start
+```
 
-### Code Splitting
+Test the app
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```Shell
+your@pc:~$ npm run test
+```
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Distributed under the MIT License. See `LICENSE` for more information.
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<!-- CONTACT -->
+## Contact
+* 🇳🇬  Abiodun Ajibade - biodun9@gmail.com | [Github Account](https://github.com/Tripple-A) | [Twitter](https://twitter.com/AbiodunAjibade3) | [Linkedin](https://linkedin.com/in/abiodun-ajibade) | [Portfolio](https://abiodun-ajibade.netlify.app/)

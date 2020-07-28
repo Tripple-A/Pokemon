@@ -58,13 +58,18 @@ const Details = ({
           <div className="myDetails">
             <h6>
               Name:
-              {details.forms[0].name}
+              <span>
+                {details.forms[0].name}
+              </span>
+
             </h6>
           </div>
           <div className="myDetails">
             <h6>
               Weight:
-              {details.weight}
+              <span>
+                {details.weight}
+              </span>
             </h6>
           </div>
           <div className="myDetails">
