@@ -27,10 +27,10 @@ const Customize = ({
       <div className="justify-content-center">
         <h6 className="text-center pokeHeading">
           Form for
-          <span>
-            {' '}
-            { currentPokemon.forms[0].name }
-          </span>
+
+          {' '}
+          { currentPokemon.forms[0].name }
+
         </h6>
         <Form current={currentPokemon} save={save} remove={remove} />
       </div>
