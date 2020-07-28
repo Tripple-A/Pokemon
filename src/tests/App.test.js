@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import renderer from 'react-test-renderer';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from '../reducers';
@@ -13,7 +12,7 @@ const renderWithRedux = component => ({
   ...render(<Provider store={store}>{component}</Provider>),
 });
 
-test('renders with Redux', () => {
+test('renders without crashing', () => {
   renderWithRedux(<App />);
 });
 
