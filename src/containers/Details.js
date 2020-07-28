@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { ADD } from '../actions';
@@ -16,22 +16,20 @@ const Details = ({
   details, add, pokemons, loading, savedNames,
 }) => {
   const [error, setError] = useState('');
-  const showError = error => {
-    setError(error);
-    setTimeout(() => {
-      setError('');
-    }, 3000);
-  };
+  useEffect(() => {
+    if (loading) setError('');
+  }, [loading]);
+
   const checkAdd = details => {
     if (savedNames.includes(details.forms[0].name)) {
-      showError(`${details.forms[0].name} already exists in catalogue`);
+      setError(`${details.forms[0].name} already exists in catalogue`);
       return null;
     }
     if (pokemons.length < 6) {
       setError('');
       add(details);
     } else {
-      showError('You can only pick six pokemans');
+      setError('You can only pick six pokemans');
     }
     return null;
   };
