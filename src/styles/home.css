@@ -71,6 +71,9 @@
     color: white;
 }
 
+.pokeName{
+    width: 90%;
+}
 .pokeName, .trash{
     border: none;
     background-color: rgb(96,139,253);
