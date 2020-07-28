@@ -23,10 +23,10 @@ const SearchBar = () => {
     setSearchValue(e.target.value);
   };
   return (
-    <div className="searchDiv row justify-content-center">
-      <div className="form-group">
+    <div className="searchDiv row">
+      <div className="form-group inputDiv">
         <label htmlFor="search">Pokemon Online Search </label>
-        <div className="input-group form-group">
+        <div className="input-group col-md-12">
           <input
             id="search"
             type="text"

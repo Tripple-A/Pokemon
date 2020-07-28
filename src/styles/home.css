@@ -19,13 +19,18 @@
     margin-bottom: 1rem;
     margin-right: 1rem;
     margin-left: 1rem;
+    border: 1px solid black;
+}
+
+label{
+    margin-left: 1rem;
 }
 
 .display{
     margin-top: 1rem
 }
 
-.search:focus{
+.search:focus, .trash:focus{
     outline: none;
     box-shadow: none;
 }
@@ -137,6 +142,11 @@
     color: yellow;
     background-color: blue;
 }
+
 span{
     padding-left: 1rem;
+}
+
+.inputDiv{
+    margin-left: -1rem;
 }
