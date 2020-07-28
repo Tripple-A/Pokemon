@@ -39,7 +39,7 @@ Tested using:
 
 <!-- LIVE PREVIEW -->
 ## Live Preview
-Find the live version [here](https://weather-gypsy.herokuapp.com/).
+Find the live version [here](https://pokemon-test-biodun.netlify.app/).
 Below is a screenshot of what it looks like on a laptop screen. It is not mobile responsive yet.
 ![Image](/src/images/pokemonProof.png)
 
