@@ -38,7 +38,7 @@ const Customize = ({
   }
 
   return (
-    <div>
+    <div className="customize">
 
       <h6 className="text-center pokeHeading">Customize your Pokemons</h6>
 

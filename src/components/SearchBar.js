@@ -37,7 +37,7 @@ const SearchBar = () => {
           />
           <button
             className="searchBtn"
-            type="button"
+            type="submit"
             onClick={search}
             data-testid="clickHere"
           >

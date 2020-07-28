@@ -1,3 +1,7 @@
+.header{
+    background-color: rgb(96,139,253);
+}
+
 .board{
     width: 85%;
     margin: 0px auto;
@@ -33,10 +37,6 @@
     padding-top: 3rem;
 }
 
-.error{
-    color: red
-}
-
 .pokeHeading{
     background-color: blue;
     color: yellow;
@@ -45,11 +45,12 @@
     font-size: 2rem;
     font-weight: bold;
     font-family: cursive;
+    border-radius: 2rem;
 }
 
 .pokeImages{
   border-radius: 0.5rem;
-  background-color: rgb(145, 206, 235);
+  background-color: rgb(96,139,253);
   padding-left: 1.5rem;
   padding-right: 0.3rem;
   z-index: 99;
@@ -72,7 +73,7 @@
 
 .pokeName, .trash{
     border: none;
-    background-color: rgb(145, 206, 235);
+    background-color: rgb(96,139,253);
     color: white;
     font-family: cursive;
 }
@@ -93,11 +94,7 @@
 }
 
 .searchBtn:hover{
-    background-color: rgb(145, 206, 235);
-}
-
-.pokPic{
-
+    background-color: rgb(96,139,253);
 }
 
 .trash{
@@ -121,10 +118,19 @@
 }
 
 .myDetails{
-    background-color: #58ABF6;
+    background-color: rgb(96,139,253);
     padding: 1rem;
     border-radius: 1rem;
     margin-bottom: 1rem;
     color: white;
     word-spacing: 1rem;
+}
+
+.error{
+    color: red
+}
+
+.btn-primary{
+    color: yellow;
+    background-color: blue;
 }
