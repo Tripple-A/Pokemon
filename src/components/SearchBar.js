@@ -30,7 +30,7 @@ const SearchBar = () => {
             id="search"
             type="text"
             className="form-control search"
-            placeholder="Search by name or number"
+            placeholder="Search by name or id"
             onChange={update}
             value={searchValue}
             data-testid="typeHere"
