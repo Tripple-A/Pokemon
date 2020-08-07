@@ -1,10 +1,14 @@
-const currentIndex = (state = 0, action) => {
-  switch (action.type) {
-    case 'VIEW':
-      return action.index;
-    default:
-      return state;
-  }
-};
+import { createSlice } from '@reduxjs/toolkit';
 
-export default currentIndex;
+const currentIndexSlice = createSlice({
+  name: 'currentIndex',
+  initialState: 0,
+  reducers: {
+    viewPokemon(state, action) {
+      return action.payload;
+    },
+  },
+});
+
+export const { viewPokemon } = currentIndexSlice.actions;
+export default currentIndexSlice.reducer;

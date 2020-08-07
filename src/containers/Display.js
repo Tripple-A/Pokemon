@@ -1,31 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { VIEW, DELETE } from '../actions';
 import Logo from '../images/pokemon.png';
 import { deletePokemon } from '../reducers/pokemons';
+import { viewPokemon } from '../reducers/currentIndex';
 
 const mapStateToProps = state => ({
   newList: state.pokemons,
   pokemons: state.pokemons.list,
 });
 
-const mapDispatchToProps = dispatch => ({
-  view: index => dispatch(VIEW(index)),
-  remove: index => dispatch(deletePokemon(index)),
-});
+const mapDispatchToProps = { viewPokemon, deletePokemon };
 
-const Display = ({ pokemons, view, remove }) => {
+const Display = ({ pokemons, viewPokemon, deletePokemon }) => {
   const discard = index => {
-    view(0);
-    remove(index);
+    viewPokemon(0);
+    deletePokemon(index);
   };
 
   const listItems = pokemons.map((pokemon, index) => (
     <div key={pokemon.forms[0].name} className="pokeImages justify-content-center">
       <button
         className="pokeName text-justify"
-        onClick={() => view(index + 1)}
+        onClick={() => viewPokemon(index + 1)}
         type="button"
         data-testid="viewButton"
       >
@@ -67,8 +64,8 @@ const Display = ({ pokemons, view, remove }) => {
 
 Display.propTypes = {
   pokemons: PropTypes.arrayOf(Object).isRequired,
-  view: PropTypes.func.isRequired,
-  remove: PropTypes.func.isRequired,
+  viewPokemon: PropTypes.func.isRequired,
+  deletePokemon: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Display);

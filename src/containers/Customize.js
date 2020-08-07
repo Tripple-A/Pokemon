@@ -2,28 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Form from '../components/Form';
-import {editPokemon} from '../reducers/pokemons';
-import { EDIT, VIEW } from '../actions';
+import { editPokemon } from '../reducers/pokemons';
+import { viewPokemon } from '../reducers/currentIndex';
 
 const mapStateToProps = state => ({
   pokemons: state.pokemons.list,
   index: state.currentIndex,
 });
 
-const mapDispatchToProps = dispatch => ({
-  edit: (index, extra) => dispatch(editPokemon({
-    index,
-    extra,
-  })),
-  remove: index => dispatch(VIEW(index)),
-});
+const mapDispatchToProps = { editPokemon, viewPokemon };
 
 const Customize = ({
-  pokemons, index, edit, remove,
+  pokemons, index, editPokemon, viewPokemon,
 }) => {
   const currentPokemon = index > 0 ? pokemons[index - 1] : null;
   const save = extra => {
-    edit(index - 1, extra);
+    editPokemon({
+      index: index - 1,
+      extra,
+    });
   };
 
   if (index > 0) {
@@ -36,7 +33,7 @@ const Customize = ({
           { currentPokemon.forms[0].name }
 
         </h6>
-        <Form current={currentPokemon} save={save} remove={remove} />
+        <Form current={currentPokemon} save={save} remove={viewPokemon} />
       </div>
     );
   }
@@ -53,9 +50,9 @@ const Customize = ({
 
 Customize.propTypes = {
   pokemons: PropTypes.arrayOf(PropTypes.object).isRequired,
-  edit: PropTypes.func.isRequired,
+  editPokemon: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
-  remove: PropTypes.func.isRequired,
+  viewPokemon: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Customize);
