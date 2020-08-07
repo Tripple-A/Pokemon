@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addPokemon } from '../reducers/pokemons';
 
-const mapDispatchToProps = dispatch => ({
-  add: pokemon => dispatch(addPokemon(pokemon)),
-});
+const mapDispatchToProps = { addPokemon };
 
 const mapStateToProps = state => ({
   pokemons: state.pokemons.list,
@@ -13,7 +11,7 @@ const mapStateToProps = state => ({
 });
 
 const Details = ({
-  details, add, pokemons, loading, savedNames,
+  details, addPokemon, pokemons, loading, savedNames,
 }) => {
   const [error, setError] = useState('');
   useEffect(() => {
@@ -27,7 +25,7 @@ const Details = ({
     }
     if (pokemons.length < 6) {
       setError('');
-      add(details);
+      addPokemon(details);
     } else {
       setError('You can only pick six pokemans');
     }
@@ -109,7 +107,7 @@ const Details = ({
 };
 
 Details.propTypes = {
-  add: PropTypes.func.isRequired,
+  addPokemon: PropTypes.func.isRequired,
   savedNames: PropTypes.arrayOf(Object).isRequired,
   pokemons: PropTypes.arrayOf(Object).isRequired,
   loading: PropTypes.bool.isRequired,

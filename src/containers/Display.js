@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { VIEW, DELETE } from '../actions';
 import Logo from '../images/pokemon.png';
+import { deletePokemon } from '../reducers/pokemons';
 
 const mapStateToProps = state => ({
   newList: state.pokemons,
@@ -11,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   view: index => dispatch(VIEW(index)),
-  remove: index => dispatch(DELETE(index)),
+  remove: index => dispatch(deletePokemon(index)),
 });
 
 const Display = ({ pokemons, view, remove }) => {
