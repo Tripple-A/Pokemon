@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Form from '../components/Form';
+import {editPokemon} from '../reducers/pokemons';
 import { EDIT, VIEW } from '../actions';
 
 const mapStateToProps = state => ({
@@ -10,7 +11,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  edit: (index, extra) => dispatch(EDIT(index, extra)),
+  edit: (index, extra) => dispatch(editPokemon({
+    index,
+    extra,
+  })),
   remove: index => dispatch(VIEW(index)),
 });
 

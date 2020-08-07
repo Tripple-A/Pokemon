@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
 const obj = {
@@ -14,6 +15,10 @@ const pokemonsSlice = createSlice({
     addPokemon(state, action) {
       state.savedNames.push(action.payload.id);
       state.list.push(action.payload);
+    },
+    editPokemon(state, action) {
+      const newObj = { ...state.list[action.payload.index], ...action.payload.extra };
+      state.list[action.payload.index] = newObj;
     },
   },
 });
@@ -39,7 +44,7 @@ const pokemons = (state = obj, action) => {
   }
 };
 
-export const { addPokemon } = pokemonsSlice.actions;
+export const { addPokemon, editPokemon } = pokemonsSlice.actions;
 
 export default pokemonsSlice.reducer;
 
