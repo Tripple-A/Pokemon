@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { ADD } from '../actions';
+import { addPokemon } from '../reducers/pokemons';
 
 const mapDispatchToProps = dispatch => ({
-  add: pokemon => dispatch(ADD(pokemon)),
+  add: pokemon => dispatch(addPokemon(pokemon)),
 });
 
 const mapStateToProps = state => ({

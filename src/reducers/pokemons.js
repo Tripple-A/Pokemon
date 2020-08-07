@@ -1,9 +1,22 @@
+import { createSlice } from '@reduxjs/toolkit';
+
 const obj = {
   list: [],
   savedNames: [],
 };
 
 const slice = (arr, index) => arr.filter((item, ind) => ind !== index);
+
+const pokemonsSlice = createSlice({
+  name: 'pokemons',
+  initialState: obj,
+  reducers: {
+    addPokemon(state, action) {
+      state.savedNames.push(action.payload.id);
+      state.list.push(action.payload);
+    },
+  },
+});
 
 const pokemons = (state = obj, action) => {
   const newArr = { ...state };
@@ -26,4 +39,8 @@ const pokemons = (state = obj, action) => {
   }
 };
 
-export default pokemons;
+export const { addPokemon } = pokemonsSlice.actions;
+
+export default pokemonsSlice.reducer;
+
+//export default pokemons;
