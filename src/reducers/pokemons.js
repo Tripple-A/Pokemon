@@ -21,36 +21,12 @@ const pokemonsSlice = createSlice({
       state.list[action.payload.index] = newObj;
     },
     deletePokemon(state, action) {
-      const list = slice(state.list, action.index);
-      console.log(list);
-      state.savedNames = slice(state.savedNames, action.index);
+      state.list = slice(state.list, action.payload);
+      state.savedNames = slice(state.savedNames, action.payload);
     },
   },
 });
 
-const pokemons = (state = obj, action) => {
-  const newArr = { ...state };
-  let newObj;
-  switch (action.type) {
-    case 'ADD':
-      newArr.savedNames.push(action.pokemon.id);
-      newArr.list = [...state.list, action.pokemon];
-      return newArr;
-    case 'EDIT':
-      newObj = { ...newArr.list[action.index], ...action.extra };
-      newArr.list[action.index] = newObj;
-      return newArr;
-    case 'DELETE':
-      newArr.list = slice(newArr.list, action.payload);
-      newArr.savedNames = slice(newArr.savedNames, action.payload);
-      return newArr;
-    default:
-      return state;
-  }
-};
-
 export const { addPokemon, editPokemon, deletePokemon } = pokemonsSlice.actions;
 
 export default pokemonsSlice.reducer;
-
-//export default pokemons;
