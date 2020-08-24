@@ -6,7 +6,6 @@ const Header = () => (
       <h1 className="text-center py-3">
         <span className="display-3">The Pokemon League</span>
       </h1>
-
     </div>
   </div>
 );

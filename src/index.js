@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { configureStore } from '@reduxjs/toolkit';
+import { applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import './styles/index.css';
 import App from './components/App';
@@ -9,7 +11,7 @@ import * as serviceWorker from './serviceWorker';
 
 const store = configureStore({
   reducer: rootReducer,
-});
+}, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>

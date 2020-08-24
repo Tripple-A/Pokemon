@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addPokemon } from '../reducers/pokemons';
+import { auto } from '../actions/middleware';
 
-const mapDispatchToProps = { addPokemon };
+const mapDispatchToProps = { addPokemon, auto };
 
 const mapStateToProps = state => ({
   pokemons: state.pokemons.list,
@@ -11,7 +12,7 @@ const mapStateToProps = state => ({
 });
 
 const Details = ({
-  details, addPokemon, pokemons, loading, savedNames,
+  details, addPokemon, pokemons, loading, savedNames, auto,
 }) => {
   const [error, setError] = useState('');
   useEffect(() => {
@@ -25,7 +26,8 @@ const Details = ({
     }
     if (pokemons.length < 6) {
       setError('');
-      addPokemon(details);
+      // addPokemon(details);
+      auto();
     } else {
       setError('You can only pick six pokemans');
     }
